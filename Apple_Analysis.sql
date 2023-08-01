@@ -34,8 +34,8 @@ ORDER BY NumApps DESC
 -- Get an overview of apps' ratings
 
 SELECT min(user_rating) AS MinRating,
-	   max(user_rating) AS MaxRating,
-	   avg(user_rating) AS AvgRating
+       max(user_rating) AS MaxRating,
+       avg(user_rating) AS AvgRating
 FROM AppleStore
 
 -- Min is 0, Max is 5, and Average is 3.52
@@ -48,8 +48,8 @@ FROM AppleStore
 -- Determine whether paid apps have higher ratings than free apps
 
 SELECT CASE
-			WHEN price > 0 THEN 'Paid'
-			ELSE 'Free'
+	   WHEN price > 0 THEN 'Paid'
+	   ELSE 'Free'
 	   END AS App_Type,
 	   avg(user_rating) AS Avg_Rating
 FROM AppleStore
@@ -60,10 +60,10 @@ GROUP BY App_Type
 -- Check if apps with more supported languages have higher ratings
 
 SELECT CASE
-			WHEN lang_num < 10 THEN '<10 languages'
-			WHEN lang_num BETWEEN 10 AND 30 THEN '10-30 languages'
-			ELSE '>30 languages'
-       END AS language_bucket,
+           WHEN lang_num < 10 THEN '<10 languages'
+	   WHEN lang_num BETWEEN 10 AND 30 THEN '10-30 languages'
+	   ELSE '>30 languages'
+           END AS language_bucket,
 	   avg(user_rating) AS Avg_Rating
 FROM AppleStore
 GROUP BY language_bucket
@@ -89,10 +89,10 @@ LIMIT 10
 -- Check if there is correlation between the length of the app description and the user rating_count_tot
 
 SELECT CASE
-			WHEN length(b.app_desc) < 500 THEN 'Short'
-			WHEN length(b.app_desc) BETWEEN 500 AND 1000 THEN 'Medium'
-			ELSE 'Long'
-       END AS description_length_bucket,
+           WHEN length(b.app_desc) < 500 THEN 'Short'
+	   WHEN length(b.app_desc) BETWEEN 500 AND 1000 THEN 'Medium'
+	   ELSE 'Long'
+           END AS description_length_bucket,
 	   avg(a.user_rating) AS Average_Rating
 FROM AppleStore a
 JOIN appleStore_description b
