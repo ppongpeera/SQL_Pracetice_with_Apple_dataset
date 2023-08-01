@@ -78,7 +78,7 @@ Focus effort on other aspects of the app
 -- Check genre with low ratings
 
 SELECT prime_genre,
-	   avg(user_rating) AS Avg_Rating
+       avg(user_rating) AS Avg_Rating
 FROM AppleStore
 GROUP BY prime_genre
 ORDER BY Avg_Rating ASC
