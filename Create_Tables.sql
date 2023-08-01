@@ -1,6 +1,5 @@
 CREATE TABLE "AppleStore" 
-  ( "field1" INTEGER, 
-    "id" INTEGER, 
+  ( "id" INTEGER, 
     "track_name" TEXT, 
     "size_bytes" INTEGER, 
     "currency" TEXT, 
