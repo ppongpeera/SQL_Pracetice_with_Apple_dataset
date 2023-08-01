@@ -84,7 +84,7 @@ GROUP BY prime_genre
 ORDER BY Avg_Rating ASC
 LIMIT 10 
 
--- There might be good opportunity to create an app in this space
+-- There might be good opportunity to create an app in this space (Catalogs, Finance, Book)
 
 -- Check if there is correlation between the length of the app description and the user rating_count_tot
 
