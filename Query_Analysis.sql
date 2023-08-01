@@ -100,7 +100,7 @@ ON a.id = b.id
 GROUP BY description_length_bucket
 ORDER BY Average_Rating DESC
 /*
-the longer the description, the higher is the user rating on average
+the longer the description, the higher is the user rating on average (Long 3.85, Medium 3.23, Short 2.53)
 */	
 
 -- Check the top-rated apps for each genre
