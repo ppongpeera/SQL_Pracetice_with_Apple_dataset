@@ -86,7 +86,7 @@ LIMIT 10
 
 -- There might be good opportunity to create an app in this space (Catalogs, Finance, Book)
 
--- Check if there is correlation between the length of the app description and the user rating_count_tot
+-- Check if there is correlation between the length of the app description and the user rating
 
 SELECT CASE
            WHEN length(b.app_desc) < 500 THEN 'Short'
@@ -105,14 +105,13 @@ the longer the description, the higher is the user rating on average (Long 3.85,
 
 -- Check the top-rated apps for each genre
 
-SELECT prime_genre,
+SELECT     prime_genre,
 	   track_name,
 	   user_rating
 FROM (
 	  SELECT prime_genre,
 	   track_name,
 	   user_rating,
-	   rating_count_tot DESC,
 	   rank() OVER (PARTITION BY prime_genre ORDER BY user_rating DESC, rating_count_tot DESC) AS rank
 	  FROM AppleStore
 	 ) AS a
